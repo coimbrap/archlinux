@@ -299,7 +299,7 @@ title Arch Linux
 linux /vmlinuz-linux
 initrd intel-ucode.img
 initrd /initramfs-linux.img
-options cryptdevice=UUID=<UUID>:cryptsystem:allow-discards root=/dev/mapper/cryptsystem rootflags=subvol=root rw rootflags=subvol=root rw
+options cryptdevice=UUID=<UUID>:cryptsystem:allow-discards root=/dev/mapper/cryptsystem rootflags=subvol=root rw rootflags=subvol=root rw drm.edid_firmware=edid/1920x1080.bin
 EOF
 ```
 
