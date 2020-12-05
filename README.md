@@ -390,7 +390,8 @@ pacman -S irqbalance cpupower x86_energy_perf_policy \
 
 #### VirtualBox
 ```bash
-pacman -S xf86-video-vesa virtualbox virtualbox-host-dkms
+pacman -S xf86-video-vesa virtualbox virtualbox-host-modules-arch
+modprobe vboxdrv
 ```
 
 #### Outils, thème, gnome, imprimantes/scanner et audio
@@ -408,7 +409,15 @@ pacman -S arc-gtk-theme arc-icon-theme elementary-icon-theme \
         vlc chromium keepassxc
 ```
 
-Activation et demarage de certains outils, il peut y avoir des erreurs c'est pas grave
+Suppression des packets inutile
+```bash
+sudo pacman -Rsn gnome-chess five-or-more hitori iagno gnome-klotski lightsoff gnome-mahjongg gnome-mines \
+      gnome-nibbles quadrapassel four-in-a-row gnome-robots gnome-sudoku swell-foop \
+      tali gnome-taquin gnome-tetravex epiphany
+```
+
+
+Activation et démarrage de certains outils, il peut y avoir des erreurs c'est pas grave
 
 ```bash
 systemctl enable syslog-ng@default
