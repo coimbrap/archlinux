@@ -238,11 +238,6 @@ On prend les dix plus rapide de france
 reflector --country France --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
-##### Activation de dhcp
-```bash
-systemctl enable dhcpcd
-```
-
 ##### Optimisation pour le SSD
 
 Activation TRIM pour soulager les blocs du SSD
@@ -422,8 +417,6 @@ Activation et démarrage de certains outils, il peut y avoir des erreurs c'est p
 ```bash
 systemctl enable syslog-ng@default
 systemctl enable cronie
-systemctl enable avahi-daemon
-systemctl enable avahi-dnsconfd
 systemctl enable org.cups.cupsd
 systemctl enable bluetooth
 systemctl enable networkmanager
