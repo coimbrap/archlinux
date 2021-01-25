@@ -294,8 +294,7 @@ title Arch Linux
 linux /vmlinuz-linux
 initrd intel-ucode.img
 initrd /initramfs-linux.img
-options cryptdevice=UUID=<UUID>:cryptsystem:allow-discards root=/dev/mapper/cryptsystem rootflags=subvol=root rw rootflags=subvol=root rw drm.edid_firmware=edid/1920x1080.bin
-EOF
+options cryptdevice=UUID=<UUID>:cryptsystem:allow-discards root=/dev/mapper/cryptsystem rootflags=subvol=root rw
 ```
 
 ### Fin de l'installation de base et redémarrage
@@ -409,6 +408,15 @@ Suppression des packets inutile
 sudo pacman -Rsn gnome-chess five-or-more hitori iagno gnome-klotski lightsoff gnome-mahjongg gnome-mines \
       gnome-nibbles quadrapassel four-in-a-row gnome-robots gnome-sudoku swell-foop \
       tali gnome-taquin gnome-tetravex epiphany
+```
+
+## Carte wifi broadcom
+
+Dans ce cas :
+
+```bash
+pacman -S broadcom-wl-dkms wpa_supplicant linux-headers
+systemctl enable wpa_supplicant.service
 ```
 
 
