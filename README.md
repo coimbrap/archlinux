@@ -410,7 +410,7 @@ sudo pacman -Rsn gnome-chess five-or-more hitori iagno gnome-klotski lightsoff g
       tali gnome-taquin gnome-tetravex epiphany
 ```
 
-## Carte wifi broadcom
+#### Carte wifi broadcom
 
 Dans ce cas :
 
@@ -419,6 +419,7 @@ pacman -S broadcom-wl-dkms wpa_supplicant linux-headers
 systemctl enable wpa_supplicant.service
 ```
 
+#### Lancement
 
 Activation et démarrage de certains outils, il peut y avoir des erreurs c'est pas grave
 
@@ -456,3 +457,28 @@ yay -Sy ttf-ms-fonts ttf-vista-fonts mattermost discord typora
 Un petit redémarrage s'impose : `reboot`
 
 Voilà c'est bon, l'installation est fini, il reste jutste à faire une snapshot au cas où.
+
+## Rollback sur une snapshot
+
+Boot sur l'installateur archiso
+
+### Montage du système
+
+```
+cryptsetup open /dev/disk/by-partlabel/cryptsystem system
+mount /dev/mapper/system /mnt
+```
+
+### On déplace l'ancien subvol
+
+```
+mv /mnt/root /mnt/broken_root
+```
+
+### On restaure une snapshot
+
+```
+btrfs subvol snapshot /mnt/root/ /mnt/.snapshots/#/snapshot/
+```
+
+Ou # est le numéro de la snapshot
